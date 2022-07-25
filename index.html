@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <form>
+      <span><input type="checkbox" id="parent"/>parent</span>
+      <ul>
+        <li><input type="checkbox" id='child1'/>child 1</span></li>
+        <li><input type="checkbox" id="child2"/>child 2</span></li>
+        <li><input type="checkbox" id="child3"/>child 3</span></li>
+      </ul>
+    </form>
+
+    <script>
+        $(document).ready(()=>{
+            $("#parent").click(()=>{
+                $("input[type=checkbox]").prop("checked", $("#parent").is(":checked"));
+                // console.log("first")
+            })
+            $("input[type=checkbox]").click(()=>{
+                $("#parent").prop("checked", $("input[type=checkbox]").is(":checked"))
+            })
+
+            // var child1 = true;
+            // var child2= true;
+            // var child3 = true;
+
+            
+
+            $("#child1").click(()=>{
+                $("#parent").prop(":checked", $("#child1").is(":checked"))
+            })
+            $("#child2").click(()=>{
+                $("#parent").prop(":checked", $("#child2").is(":checked"))
+            })
+            $("#child3").click(()=>{
+                $("#parent").prop("checked", $("#child3").is(":checked"))
+            })
+            
+            // $("input[type=checkbox]").click(function () {
+              
+            // });
+
+            // $("input[type=checkbox]").click(()=>{
+            //     if($("input[type=checkbox]").is("checked")){
+            //         $("#parent").prop("checked")
+            //         console.log("first")
+            //     }else{
+            //         $("#parent").prop(":checked")
+            //         console.log("second")
+            //     }
+            // })
+           
+            // $("input[type=checkbox]").click(function(){
+            //     $("#parent").prop(":checked",$("input[type=checkbox]").is(":checked"))
+            //  });
+
+        })
+    </script>
+  </body>
+</html>
